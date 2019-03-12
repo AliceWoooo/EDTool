@@ -1,22 +1,79 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <title>EDTool使用说明文档</title>
-    <link rel="shortcut icon" href="image/favicon.ico"/>
-    <!--Bootstrap Setting-->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  
-  </head>
-  <body>
-  	<div class="container">
-  		
-	  <!-- The surrounding HTML is left untouched by FirebaseUI.
-	       Your app may use that space for branding, controls and other customizations.-->
-	  <h1>EDTool使用说明文档</h1>
-	  <p>不用看了我还没写</p>
-  	</div>
-  </body>
+<html lang="cn">
+    <head>
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="author" content="Alice Wu">
+
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+
+        <link rel="stylesheet" href="index.css">
+
+        <title>EDTool使用说明文档</title>
+        <link rel="shortcut icon" href="image/favicon.ico"/>
+
+    </head>
+    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#myPage">EDTool</a>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#start">开始</a></li>
+                        <li><a href="#use">使用</a></li>
+                        <li><a href="#import">导入文件</a></li>
+                        <li><a href="#export">文件格式</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <div class="jumbotron text-center">
+            <h1>EDTool使用说明文档</h1>
+            <p>不用看了还没写完</p>
+            <form class="form-inline">
+                <div class="input-group">
+                    <input type="text" class="form-control" size="50" placeholder="标题" required>
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-danger">搜索</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <div id="start" class="container content">
+            <h2>开始</h2>
+            <p>EDTool是一个Python开发的Excel表差异比对工具，</p>
+            <a href="EDTool.exe" class="btn btn-download" role="button">点击此处下载</a>
+        </div>
+
+        <div id="use" class="container content">
+            <h2>使用</h2>
+            <p>这是个啥子</p>
+        </div>
+
+        <div id="import" class="container content">
+            <h2>导入文件</h2>
+            <p>这是个啥子</p>
+        </div>
+
+        <div id="export" class="container content">
+            <h2>导出文件</h2>
+            <p>这是个啥子</p>
+        </div>
+
+    </body>
 </html>

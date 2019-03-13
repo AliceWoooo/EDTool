@@ -1,4 +1,4 @@
-# ![logo](https://github.com/AliceWoooo/EDTool/blob/master/image/favicon.ico =24x24) EDTool使用说明文档
+# ![logo](https://github.com/AliceWoooo/EDTool/blob/master/image/favicon.ico=24x24) EDTool使用说明文档
 文档访问地址：https://alicewoooo.github.io/EDTool/
 
 

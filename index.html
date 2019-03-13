@@ -58,43 +58,48 @@
                         主要通过计算新旧表格之间的列、行、单元格之间的差异，来定位 Excel 文件中修改的内容。
                         用户可以在交互界面中指定两个用于比较的 Excel 文件，系统将会自动对比名字一致的 Sheet 表，
                         得出的内容差异在将会在交互界面中标识显示。同时，用户也可以将比对结果导出到本地中进行查看。</p>
-
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4>详细信息</h4>
+                    <div class="panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4>
+                                    <a data-toggle="collapse" href="#details">详细信息</a>
+                                </h4>
+                            </div>
+                            <div id="details" class="panel-collapse collapse">
+                                <table class="table table-bordered panel-body">
+                                    <tbody>
+                                        <tr>
+                                            <td class="col-md-2">工具格式</td>
+                                            <td class="col-md-5">EXE</td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td class="col-md-2">导出文件格式</td>
+                                            <td class="col-md-5">JSON</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-2">运行环境</td>
+                                            <td class="col-md-5">Windows</td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td class="col-md-2">编程语言</td>
+                                            <td class="col-md-5">Python 2.7</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-2">GUI框架</td>
+                                            <td class="col-md-5">PyQT4</td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td class="col-md-2">Excel表格读取工具</td>
+                                            <td class="col-md-5">xlrd</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-2">打包工具</td>
+                                            <td class="col-md-5">PyInstaller</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
-                        <table class="table table-bordered panel-body">
-                            <tbody>
-                                <tr>
-                                    <td class="col-md-2">工具格式</td>
-                                    <td class="col-md-5">EXE</td>
-                                </tr>
-                                <tr class="success">
-                                    <td class="col-md-2">导出文件格式</td>
-                                    <td class="col-md-5">JSON</td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-2">运行环境</td>
-                                    <td class="col-md-5">Windows</td>
-                                </tr>
-                                <tr class="success">
-                                    <td class="col-md-2">编程语言</td>
-                                    <td class="col-md-5">Python 2.7</td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-2">GUI框架</td>
-                                    <td class="col-md-5">PyQT4</td>
-                                </tr>
-                                <tr class="success">
-                                    <td class="col-md-2">Excel表格读取工具</td>
-                                    <td class="col-md-5">xlrd</td>
-                                </tr>
-                                <tr>
-                                    <td class="col-md-2">打包工具</td>
-                                    <td class="col-md-5">PyInstaller</td>
-                                </tr>
-                            </tbody>
-                        </table>
                     </div>
                 </div>
             </div>
@@ -239,12 +244,16 @@
                     <h2>其他</h2>
                 </div>
                 <div class="panel-body">
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4>导出文件格式</h4>
-                        </div>
-                        <div class="panel-body">
-                            <p>差异比对结果导出为JSON文件，格式如下：</p>
+                    <div class="panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4>
+                                    <a data-toggle="collapse" href="#format">导出文件格式</a>
+                                </h4>
+                            </div>
+                            <div id="format" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>差异比对结果导出为JSON文件，格式如下：</p>
 <pre>
 {
     "timestamp": "2019-02-29 25:61:61",                     // 时间戳
@@ -283,27 +292,35 @@
     ...
 }
 </pre>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div class="panel panel-success">
-                        <div class="panel-heading">
-                            <h4>致谢</h4>
+                    <div class="panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4>
+                                    <a data-toggle="collapse" href="#acknowledgement">致谢</a>
+                                </h4>
+                            </div>
+                            <div id="acknowledgement" class="panel-collapse collapse">
+                                <ul class="list-group panel-body">
+                                    <li class="list-group-item">
+                                        Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Icons Made By <a href="https://www.freepik.com/" title="Freepik">Freepik</a>
+                                        From <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> Is Licensed By
+                                        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+                                    </li>
+                                    <li class="list-group-item">
+                                        Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>
+                                        From <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> Is Licensed By
+                                        <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+                                    </li>
+                                </ul>
+                            </div>
                         </div>
-                        <ul class="list-group panel-body">
-                            <li class="list-group-item">
-                                Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a>
-                            </li>
-                            <li class="list-group-item">
-                                Icons Made By <a href="https://www.freepik.com/" title="Freepik">Freepik</a>
-                                From <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> Is Licensed By
-                                <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-                            </li>
-                            <li class="list-group-item">
-                                Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>
-                                From <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> Is Licensed By
-                                <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
-                            </li>
-                        </ul>
                     </div>
                 </div>
             </div>

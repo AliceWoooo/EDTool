@@ -36,7 +36,7 @@
                         <li><a href="#intro">概况</a></li>
                         <li><a href="#run">运行</a></li>
                         <li><a href="#ui">界面</a></li>
-                        <li><a href="#export">格式</a></li>
+                        <li><a href="#others">其他</a></li>
                     </ul>
                 </div>
             </div>
@@ -106,7 +106,7 @@
                 </div>
                 <div class="panel-body">
                     <p>本工具已打包成EXE格式，在Windows环境下下载后可直接点击运行。</p>
-                    <a href="https://github.com/AliceWoooo/EDTool/releases" class="btn btn-download" role="button">点击此处下载</a>
+                    <a href="https://github.com/AliceWoooo/EDTool/releases/download/v1.0/EDTool.exe" class="btn btn-download" role="button">点击此处下载</a>
                 </div>
             </div>
         </div>
@@ -131,15 +131,15 @@
                                     <table class="table table-bordered">
                                         <thead>
                                         <tr class="success">
-                                            <td class="col-md-2">名称</td>
-                                            <td class="col-md-5">说明</td>
-                                            <td class="col-md-1">快捷键</td>
+                                            <td class="col-md-2"><strong>名称</strong></td>
+                                            <td class="col-md-5"><strong>说明</strong></td>
+                                            <td class="col-md-1"><strong>快捷键</strong></td>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
                                             <td class="col-md-2">打开</td>
-                                            <td class="col-md-5">打开导入需要比较的Excel文件</td>
+                                            <td class="col-md-5">导入需要比较的Excel文件</td>
                                             <td class="col-md-2"><kbd>CTRL + O</kbd></td>
                                         </tr>
                                         <tr class="success">
@@ -200,7 +200,7 @@
                             </div>
                             <div id="display" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <p>用于展示具体差异情况，提供点击导航功能。</p>
+                                    <p>用于标识差异内容所在位置，方便用户定位。</p>
                                     <div class="text-center">
                                         <img class="img-thumbnail" src="image/display_drag.png" alt="tool view" style="width: 100%">
                                     </div>
@@ -220,7 +220,7 @@
                             </div>
                             <div id="diff" class="panel-collapse collapse">
                                 <div class="panel-body">
-                                    <p>包含打开、重置、导出等基本操作，支持快捷键的使用。主要操作有：</p>
+                                    <p>用于展示具体差异情况，提供点击导航功能。</p>
                                     <div class="text-center">
                                         <img class="img-thumbnail" src="image/diff_view.png" alt="tool view" style="width: 100%">
                                     </div>
@@ -233,13 +233,59 @@
             </div>
         </div>
 
-        <div id="export" class="container content">
+        <div id="others" class="container content">
             <div class="panel panel-success">
                 <div class="panel-heading">
-                    <h2>格式</h2>
+                    <h2>其他</h2>
                 </div>
                 <div class="panel-body">
-                    <p>这是个啥子</p>
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4>导出文件格式</h4>
+                        </div>
+                        <div class="panel-body">
+                            <p>差异比对结果导出为JSON文件，格式如下：</p>
+<pre>
+{
+    "timestamp": "2019-02-29 25:61:61",                     // 时间戳
+    "old file": "C:/Alice/Excel/Diff/Tool/oldFile.xlsx",    // 原文件路径
+    "new file": "C:/Alice/Excel/Diff/Tool/newFile.xlsx",    // 新文件路径
+    "threshold": [0.5],                                     // 结果对应的差异容忍度
+
+    "Alice": {                                              // 根据 Sheet 名进行分组
+
+        "column": {                                         // 列增删情况
+            "add count": 5,                                 // add count 表示新文件中新增的列的数量
+            "add": ["A", "L", "I", "C", "E"],               // add 中储存了具体新增的列号
+            "delete count": 2,                              // delete count 表示原文件中删除的号的数量
+            "delete": ["W", "U"]                            // delete 中储存了具体删除的列号
+        },
+
+        "row": {                                            // 行增删情况
+            "add count": 4,                                 // add count 表示新文件中新增的行的数量
+            "add": ["2", "0", "1", "9"],                    // add 中储存了具体新增的行号
+            "delete count": 4,                              // delete count 表示原文件中删除的行的数量
+            "delete": ["0", "2", "2", "9"]                  // delete 中储存了具有删除的行号
+        },
+
+        "cell": {                                           // 单元格改动情况
+            "change count": 2,                              // change count 表示改动的单元格的数量
+            "changes": {                                    // changes 中储存了所有改动的单元格的信息，格式为：
+                "[0,E],[0,D]": ["ED","Tool"],               // [在原文件中的坐标][在新文件中的坐标]: [原数值，新数值]
+                "[1,A],[1,W]": ["Alice","Wu"]
+            }
+        }
+    },
+
+    "Wu": {                                                 // 下一个Sheet表的情况
+        ...
+    }
+    ...
+}
+</pre>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

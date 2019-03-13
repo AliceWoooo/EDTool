@@ -13,3 +13,8 @@ EDTool 是一个基于 Python 开发的 Excel 表格差异比对工具， 主要
 | GUI框架 | PyQT4 |
 | Excel表格读取工具 | xlrd |
 | 打包工具 | PyInstaller |
+
+## 运行
+本工具已打包成EXE格式，在Windows环境下下载后可直接点击运行。
+
+下载链接：https://github.com/AliceWoooo/EDTool/releases/download/v1.0/EDTool.exe

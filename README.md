@@ -53,7 +53,7 @@ EDTool 是一个基于 Python 开发的 Excel 表格差异比对工具， 主要
 差异面板用于展示具体差异情况，提供点击导航功能。其按照列、行、单元格进行分类。其中，行（列）增删将会显示总共增加删除的行列数，以及具体更改的行（列）号。新增的部分会用蓝色标记，删除的部分则会用红色进行标。单元格改动则会把改动的坐标和具体改动的原值和新值一并显示，显示格式为 [原坐标][新坐标]。
 
 同时，三个面板中的坐标均可与展示面板进行联动。用户点击任意需要展示的坐标，该坐标将会在展示面板中选定并跳转，便于用户进行差异内容导航。
-![diff view](https://github.com/AliceWoooo/EDTool/blob/master/image/diff_view.png) ![cell view](https://github.com/AliceWoooo/EDTool/blob/master/image/cell_view.png)
+![diff view](https://github.com/AliceWoooo/EDTool/blob/master/image/diff_view.png)![cell view](https://github.com/AliceWoooo/EDTool/blob/master/image/cell_view.png)
 
 
 ## 其他

@@ -19,7 +19,7 @@
         <link rel="shortcut icon" href="image/favicon.ico"/>
 
     </head>
-    <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="60">
+    <body id="edtool" data-spy="scroll" data-target=".navbar" data-offset="60">
         <nav class="navbar navbar-default navbar-fixed-top">
             <div class="container">
                 <div class="navbar-header">
@@ -28,14 +28,15 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="#myPage">EDTool</a>
+
+                    <a class="navbar-brand" href="#edtool">EDTool</a>
                 </div>
                 <div class="collapse navbar-collapse" id="myNavbar">
                     <ul class="nav navbar-nav navbar-right">
-                        <li><a href="#start">开始</a></li>
-                        <li><a href="#use">使用</a></li>
-                        <li><a href="#import">导入文件</a></li>
-                        <li><a href="#export">文件格式</a></li>
+                        <li><a href="#intro">概况</a></li>
+                        <li><a href="#run">运行</a></li>
+                        <li><a href="#ui">界面</a></li>
+                        <li><a href="#export">格式</a></li>
                     </ul>
                 </div>
             </div>
@@ -44,36 +45,260 @@
         <div class="jumbotron text-center">
             <h1>EDTool使用说明文档</h1>
             <p>不用看了还没写完</p>
-            <form class="form-inline">
-                <div class="input-group">
-                    <input type="text" class="form-control" size="50" placeholder="标题" required>
-                    <div class="input-group-btn">
-                        <button type="button" class="btn btn-danger">搜索</button>
+        </div>
+
+        <div id="intro" class="container content">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h2>概况</h2>
+                </div>
+                <div class="panel-body">
+                    <p style="margin-bottom: 30px">
+                        EDTool 是一个基于 Python 开发的 Excel 表格差异比对工具，
+                        主要通过计算新旧表格之间的列、行、单元格之间的差异，来定位 Excel 文件中修改的内容。
+                        用户可以在交互界面中指定两个用于比较的 Excel 文件，系统将会自动对比名字一致的 Sheet 表，
+                        得出的内容差异在将会在交互界面中标识显示。同时，用户也可以将比对结果导出到本地中进行查看。</p>
+
+                    <div class="panel panel-success">
+                        <div class="panel-heading">
+                            <h4>具体信息</h4>
+                        </div>
+                        <table class="table table-bordered panel-body">
+                            <tbody>
+                                <tr>
+                                    <td class="col-md-2">文件格式</td>
+                                    <td class="col-md-5">EXE</td>
+                                </tr>
+                                <tr class="success">
+                                    <td class="col-md-2">导出文件格式</td>
+                                    <td class="col-md-5">JSON</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-2">运行环境</td>
+                                    <td class="col-md-5">Windows</td>
+                                </tr>
+                                <tr class="success">
+                                    <td class="col-md-2">编程语言</td>
+                                    <td class="col-md-5">Python 2.7</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-2">GUI框架</td>
+                                    <td class="col-md-5">PyQT4</td>
+                                </tr>
+                                <tr class="success">
+                                    <td class="col-md-2">Excel表格读取工具</td>
+                                    <td class="col-md-5">xlrd</td>
+                                </tr>
+                                <tr>
+                                    <td class="col-md-2">打包工具</td>
+                                    <td class="col-md-5">PyInstaller</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-            </form>
+            </div>
+        </div>
+        <div id="run" class="container content">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h2>运行</h2>
+                </div>
+                <div class="panel-body">
+                    <p>本工具已打包成EXE格式，在Windows环境下下载后可直接点击运行。</p>
+                    <a href="https://github.com/AliceWoooo/EDTool/releases" class="btn btn-download" role="button">点击此处下载</a>
+                </div>
+            </div>
         </div>
 
-        <div id="start" class="container content">
-            <h2>开始</h2>
-            <p>EDTool是一个Python开发的Excel表差异比对工具，</p>
-            <a href="https://github.com/AliceWoooo/EDTool/releases/tag/v1.0" class="btn btn-download" role="button">点击此处下载</a>
-        </div>
+        <div id="ui" class="container content">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h2>界面</h2>
+                </div>
+                <div class="panel-body">
+                    <p>本工具交互界面主要包含三个模块：</p>
+                    <div class="panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4>
+                                    <a data-toggle="collapse" href="#toolbar">工具栏</a>
+                                </h4>
+                            </div>
+                            <div id="toolbar" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>包含打开、重置、导出等基本操作，支持快捷键的使用。主要操作有：</p>
+                                    <table class="table table-bordered">
+                                        <thead>
+                                        <tr class="success">
+                                            <td class="col-md-2">名称</td>
+                                            <td class="col-md-5">说明</td>
+                                            <td class="col-md-1">快捷键</td>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                        <tr>
+                                            <td class="col-md-2">打开</td>
+                                            <td class="col-md-5">打开导入需要比较的Excel文件</td>
+                                            <td class="col-md-2"><kbd>CTRL + O</kbd></td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td class="col-md-2">重新选择</td>
+                                            <td class="col-md-5">重置已选择的Excel文件</td>
+                                            <td class="col-md-1"><kbd>CTRL + R</kbd></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-2">导出</td>
+                                            <td class="col-md-5">导出比对后的差异结果，导出的文件格式为JSON文件</td>
+                                            <td class="col-md-1"><kbd>CTRL + E</kbd></td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td class="col-md-2">帮助</td>
+                                            <td class="col-md-5">打开说明文档</td>
+                                            <td class="col-md-1"><kbd>CTRL + H</kbd></td>
+                                        </tr>
+                                        <tr>
+                                            <td class="col-md-2">关闭</td>
+                                            <td class="col-md-5">关闭程序</td>
+                                            <td class="col-md-1"><kbd>CTRL + Q</kbd></td>
+                                        </tr>
+                                        <tr class="success">
+                                            <td class="col-md-2">行列相同容忍度</td>
+                                            <td class="col-md-5">
+                                                <p>
+                                                    由于系统判断的局限性，考虑到得出的结果可能与用户期望得到的结果相差较大，
+                                                    这里添加了一个更改判定容忍度的设置，用于调整差异对比中对于行（列）相同的判定。
+                                                </p>
+                                                <p>
+                                                    其中，容忍度越高，则表示在行（列）判定中，被认定为相同的两行（列）里允许不同的单元格个数越多；
+                                                    反之，如果容忍度越低，则表示两个相同行（列）中允许不同的单元格个数越少。
+                                                </p>
+                                                <p class="well well-sm">
+                                                    例如：原文件中第x行为[A, B, C, D, <strong>E</strong>]，
+                                                    新文件中第y行为[A, B, C, D, <strong>F</strong>]。
+                                                    在容忍度高的情况下，x，y行可以被认定为是相同的一行，从而修改的内容为<strong>单元格E更改为单元格F</strong>；
+                                                    而在容忍度低的情况下，x，y将被视作不同的一行，从而修改的内容为<strong>删除了x行，增加了y行</strong>。
+                                                </p>
+                                            </td>
+                                            <td class="col-md-1"></td>
+                                        </tr>
+                                        </tbody>
+                                    </table>
+                                    <div class="text-center">
+                                        <img class="img-thumbnail" src="image/tool_view.png" alt="tool view" style="width: 100%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4>
+                                    <a data-toggle="collapse" href="#display">展示面板</a>
+                                </h4>
+                            </div>
+                            <div id="display" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>用于展示具体差异情况，提供点击导航功能。</p>
+                                    <div class="text-center">
+                                        <img class="img-thumbnail" src="image/display_drag.png" alt="tool view" style="width: 100%">
+                                    </div>
+                                    <div class="text-center">
+                                        <img class="img-thumbnail" src="image/display_excel.png" alt="tool view" style="width: 100%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h4>
+                                    <a data-toggle="collapse" href="#diff">差异面板</a>
+                                </h4>
+                            </div>
+                            <div id="diff" class="panel-collapse collapse">
+                                <div class="panel-body">
+                                    <p>包含打开、重置、导出等基本操作，支持快捷键的使用。主要操作有：</p>
+                                    <div class="text-center">
+                                        <img class="img-thumbnail" src="image/diff_view.png" alt="tool view" style="width: 100%">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
-        <div id="use" class="container content">
-            <h2>使用</h2>
-            <p>这是个啥子</p>
-        </div>
-
-        <div id="import" class="container content">
-            <h2>导入文件</h2>
-            <p>这是个啥子</p>
+                </div>
+            </div>
         </div>
 
         <div id="export" class="container content">
-            <h2>导出文件</h2>
-            <p>这是个啥子</p>
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h2>格式</h2>
+                </div>
+                <div class="panel-body">
+                    <p>这是个啥子</p>
+                </div>
+            </div>
         </div>
+
+        <footer class="container-fluid text-center">
+            <a class="up-arrow" href="#edtool" data-toggle="tooltip" title="TO TOP">
+                <span class="glyphicon glyphicon-chevron-up"></span>
+            </a><br><br>
+            <p>
+                Theme Credit: Bootstrap Theme Made By <a href="https://www.w3schools.com" title="Visit w3schools">www.w3schools.com</a>
+            </p>
+            <p>
+                Icon Credit: Icons made by <a href="https://www.freepik.com/" title="Freepik">Freepik</a>
+                from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by
+                <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+            </p>
+        </footer>
+
+        <script>
+            $(document).ready(function(){
+                // Initialize Tooltip
+                $('[data-toggle="tooltip"]').tooltip();
+
+                // Add smooth scrolling to all links in navbar + footer link
+                $(".navbar a, footer a[href='#edtool']").on('click', function(event) {
+
+                    // Make sure this.hash has a value before overriding default behavior
+                    if (this.hash !== "") {
+
+                        // Prevent default anchor click behavior
+                        event.preventDefault();
+
+                        // Store hash
+                        var hash = this.hash;
+
+                        // Using jQuery's animate() method to add smooth page scroll
+                        // The optional number (900) specifies the number of milliseconds it takes to scroll to the specified area
+                        $('html, body').animate({
+                            scrollTop: $(hash).offset().top
+                        }, 900, function(){
+
+                            // Add hash (#) to URL when done scrolling (default click behavior)
+                            window.location.hash = hash;
+                        });
+                    } // End if
+                });
+
+                $(window).scroll(function() {
+                    $(".slideanim").each(function(){
+                        var pos = $(this).offset().top;
+
+                        var winTop = $(window).scrollTop();
+                        if (pos < winTop + 600) {
+                            $(this).addClass("slide");
+                        }
+                    });
+                });
+            })
+        </script>
 
     </body>
 </html>

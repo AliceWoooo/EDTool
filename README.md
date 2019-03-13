@@ -1,4 +1,4 @@
-# ![logo](https://github.com/AliceWoooo/EDTool/blob/master/image/favicon.ico)<!-- .element height="150%" width="150%" --> EDTool使用说明文档
+# ![logo](https://github.com/AliceWoooo/EDTool/blob/master/image/favicon.ico)<!-- .element height="24px" width="24px" --> EDTool使用说明文档
 文档访问地址：https://alicewoooo.github.io/EDTool/
 
 

@@ -94,7 +94,9 @@ EDTool 是一个基于 Python 开发的 Excel 表格差异比对工具， 主要
 
 
 *Developed By [Alice Wu](mailto: alicewoo358@gmail.com), 2019, Visit At [Github](https://github.com/AliceWoooo/)*
+
 *Theme Credit: Bootstrap Theme Made By [www.w3schools.com](https://www.w3schools.com)*
+
 *Icon Credit: Icons Made By [Freepik](https://www.freepik.com/) From [www.flaticon.com](https://www.flaticon.com/) Is Licensed By [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)*
 
 

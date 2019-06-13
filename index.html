@@ -37,6 +37,7 @@
                         <li><a href="#run">运行</a></li>
                         <li><a href="#ui">界面</a></li>
                         <li><a href="#others">其他</a></li>
+                        <li><a href="#update">更新</a></li>
                     </ul>
                 </div>
             </div>
@@ -110,7 +111,7 @@
                 </div>
                 <div class="panel-body">
                     <p>本工具已打包成EXE格式，在Windows环境下下载后可直接点击运行。</p>
-                    <a href="https://github.com/AliceWoooo/EDTool/releases/download/v1.0/EDTool.exe" class="btn btn-download" role="button">点击此处下载</a>
+                    <a href="https://github.com/AliceWoooo/EDTool/releases/download/v2.0/EDTool.exe" class="btn btn-download" role="button">点击此处下载</a>
                 </div>
             </div>
         </div>
@@ -298,40 +299,41 @@
                                     <p>差异比对结果导出为JSON文件，格式如下：</p>
 <pre>
 {
-    "timestamp": "2019-02-29 25:61:61",                     // 时间戳
-    "old file": "C:/Alice/Excel/Diff/Tool/oldFile.xlsx",    // 原文件路径
-    "new file": "C:/Alice/Excel/Diff/Tool/newFile.xlsx",    // 新文件路径
-    "threshold": [0.5],                                     // 结果对应的差异容忍度
-
-    "Alice": {                                              // 根据 Sheet 名进行分组
-
-        "column": {                                         // 列增删情况
-            "add count": 5,                                 // add count 表示新文件中新增的列的数量
-            "add": ["A", "L", "I", "C", "E"],               // add 中储存了具体新增的列号
-            "delete count": 2,                              // delete count 表示原文件中删除的号的数量
-            "delete": ["W", "U"]                            // delete 中储存了具体删除的列号
-        },
-
-        "row": {                                            // 行增删情况
-            "add count": 4,                                 // add count 表示新文件中新增的行的数量
-            "add": ["2", "0", "1", "9"],                    // add 中储存了具体新增的行号
-            "delete count": 4,                              // delete count 表示原文件中删除的行的数量
-            "delete": ["0", "2", "2", "9"]                  // delete 中储存了具有删除的行号
-        },
-
-        "cell": {                                           // 单元格改动情况
-            "change count": 2,                              // change count 表示改动的单元格的数量
-            "changes": {                                    // changes 中储存了所有改动的单元格的信息，格式为：
-                "[0,E],[0,D]": ["ED","Tool"],               // [在原文件中的坐标][在新文件中的坐标]: [原数值，新数值]
-                "[1,A],[1,W]": ["Alice","Wu"]
+    "页增删": {
+        "增加": [],
+        "增加数": 0,
+        "删除": [],
+        "删除数": 0
+    },
+    "内容增删": {
+        "Sheet1": {
+            "单元格": {
+                "改动": [],
+                "改动数": 0
+            },
+            "行": {
+                "增加": [],
+                "增加数": 0,
+                "删除": [],
+                "删除数": 0
+            },
+            "列": {
+                "增加": [
+                    "E",
+                    "F"
+                ],
+                "增加数": 2,
+                "删除": [],
+                "删除数": 0
             }
         }
     },
-
-    "Wu": {                                                 // 下一个Sheet表的情况
-        ...
-    }
-    ...
+    "新文件": "C:/Users/alice/Desktop/oldFile",
+    "时间": "2019-06-13 12:33:34.490000",
+    "阙值": [
+        0.5
+    ],
+    "原文件": "C:/Users/alice/Desktop/newFile"
 }
 </pre>
                                 </div>
@@ -359,6 +361,50 @@
                                         Icons made by <a href="https://www.flaticon.com/authors/pixel-perfect" title="Pixel perfect">Pixel perfect</a>
                                         From <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> Is Licensed By
                                         <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="update" class="container content">
+            <div class="panel panel-success">
+                <div class="panel-heading">
+                    <h2>更新</h2>
+                </div>
+                <div class="panel-body">
+                    <div class="panel-group">
+                        <div class="panel panel-success">
+                            <div class="panel-heading">
+                                <h3>
+                                    <a data-toggle="collapse" href="#update_2_0">2019-06-13: v2.0</a>
+                                </h3>
+                            </div>
+                            <div id="update_2_0" class="panel-collapse collapse">
+                                <ul class="list-group panel-body">
+                                    <li class="list-group-item">
+                                        <div>
+                                            <h4><strong>新增Sheet对比</strong></h4>
+                                            <p>在进行差异对比之前会先对比Sheet的增删，并提供与差异面板的联动。导出的文件将会包含Sheet的差异。</p>
+                                            <div class="text-center">
+                                                <img class="img-thumbnail" src="image/sheet_diff_view.png" alt="sheet diff view" style="width: 30%">
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div>
+                                            <h4><strong>算法优化</strong></h4>
+                                            <p>在计算最长公共子集时，如果一个数组中某个元素不存在在另一个数组中，那么此元素也不会出现在公共子集中。因此，新算法会先对比两个数组的差异并去除，然后再对公共元素计算最长子集，从而减少运行时间和空间。</p>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item">
+                                        <div>
+                                            <h4><strong>用户界面优化</strong></h4>
+                                            <p>新用户界面会把差异面板分开成独立窗口，方便用户选择需要显示的内容。上传模式中的面板也单独提取出来，方便用户随时更改对比的文件。此外新增了进度条显示，在对比大文件的时候，用户将能看到文件的对比进度。</p>
+                                        </div>
                                     </li>
                                 </ul>
                             </div>

@@ -20,7 +20,7 @@ EDTool 是一个基于 Python 开发的 Excel 表格差异比对工具， 主要
 ## 运行
 本工具已打包成EXE格式，在Windows环境下下载后可直接点击运行。
 
-[点击此处下载](https://github.com/AliceWoooo/EDTool/releases/download/v1.0/EDTool.exe)
+[点击此处下载](https://github.com/AliceWoooo/EDTool/releases/download/v2.0/EDTool.exe)
 
 
 ## 界面
@@ -53,7 +53,7 @@ EDTool 是一个基于 Python 开发的 Excel 表格差异比对工具， 主要
 差异面板用于展示具体差异情况，提供点击导航功能。其按照列、行、单元格进行分类。其中，行（列）增删将会显示总共增加删除的行列数，以及具体更改的行（列）号。新增的部分会用蓝色标记，删除的部分则会用红色进行标。单元格改动则会把改动的坐标和具体改动的原值和新值一并显示，显示格式为 [原坐标][新坐标]。
 
 同时，三个面板中的坐标均可与展示面板进行联动。用户点击任意需要展示的坐标，该坐标将会在展示面板中选定并跳转，便于用户进行差异内容导航。
-![diff view](https://github.com/AliceWoooo/EDTool/blob/master/image/diff_view.png) ![cell view](https://github.com/AliceWoooo/EDTool/blob/master/image/cell_view.png)
+![diff view](https://github.com/AliceWoooo/EDTool/blob/master/image/diff_view.png)![cell view](https://github.com/AliceWoooo/EDTool/blob/master/image/cell_view.png)
 
 
 ## 其他
@@ -62,40 +62,41 @@ EDTool 是一个基于 Python 开发的 Excel 表格差异比对工具， 主要
 差异比对结果导出为JSON文件，格式如下：
 ```
 {
-    "timestamp": "2019-02-29 25:61:61",                     // 时间戳
-    "old file": "C:/Alice/Excel/Diff/Tool/oldFile.xlsx",    // 原文件路径
-    "new file": "C:/Alice/Excel/Diff/Tool/newFile.xlsx",    // 新文件路径
-    "threshold": [0.5],                                     // 结果对应的差异容忍度
-
-    "Alice": {                                              // 根据 Sheet 名进行分组
-
-        "column": {                                         // 列增删情况
-            "add count": 5,                                 // add count 表示新文件中新增的列的数量
-            "add": ["A", "L", "I", "C", "E"],               // add 中储存了具体新增的列号
-            "delete count": 2,                              // delete count 表示原文件中删除的号的数量
-            "delete": ["W", "U"]                            // delete 中储存了具体删除的列号
-        },
-
-        "row": {                                            // 行增删情况
-            "add count": 4,                                 // add count 表示新文件中新增的行的数量
-            "add": ["2", "0", "1", "9"],                    // add 中储存了具体新增的行号
-            "delete count": 4,                              // delete count 表示原文件中删除的行的数量
-            "delete": ["0", "2", "2", "9"]                  // delete 中储存了具有删除的行号
-        },
-
-        "cell": {                                           // 单元格改动情况
-            "change count": 2,                              // change count 表示改动的单元格的数量
-            "changes": {                                    // changes 中储存了所有改动的单元格的信息，格式为：
-                "[0,E],[0,D]": ["ED","Tool"],               // [在原文件中的坐标][在新文件中的坐标]: [原数值，新数值]
-                "[1,A],[1,W]": ["Alice","Wu"]
+    "页增删": {
+        "增加": [],
+        "增加数": 0,
+        "删除": [],
+        "删除数": 0
+    },
+    "内容增删": {
+        "Sheet1": {
+            "单元格": {
+                "改动": [],
+                "改动数": 0
+            },
+            "行": {
+                "增加": [],
+                "增加数": 0,
+                "删除": [],
+                "删除数": 0
+            },
+            "列": {
+                "增加": [
+                    "E",
+                    "F"
+                ],
+                "增加数": 2,
+                "删除": [],
+                "删除数": 0
             }
         }
     },
-
-    "Wu": {                                                 // 下一个Sheet表的情况
-        ...
-    }
-    ...
+    "新文件": "C:/Users/alice/Desktop/oldFile",
+    "时间": "2019-06-13 12:33:34.490000",
+    "阙值": [
+        0.5
+    ],
+    "原文件": "C:/Users/alice/Desktop/newFile"
 }
 ```
 
@@ -104,3 +105,13 @@ EDTool 是一个基于 Python 开发的 Excel 表格差异比对工具， 主要
 * Bootstrap Theme Made By [www.w3schools.com](https://www.w3schools.com)
 * Icons Made By [Freepik](https://www.freepik.com/) From [www.flaticon.com](https://www.flaticon.com/) Is Licensed By [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
 * Icons made by [Pixel perfect](https://www.flaticon.com/authors/pixel-perfect) From [www.flaticon.com](https://www.flaticon.com/) Is Licensed By [CC 3.0 BY](http://creativecommons.org/licenses/by/3.0/)
+
+
+
+## 更新
+
+### 2019-06-13： v2.0
+* **新增Sheet对比:** 在进行差异对比之前会先对比Sheet的增删，并提供与差异面板的联动。导出的文件将会包含Sheet的差异。
+![sheet diff view](https://github.com/AliceWoooo/EDTool/blob/master/image/sheet_diff_view.png)
+* **算法优化:** 在计算最长公共子集时，如果一个数组中某个元素不存在在另一个数组中，那么此元素也不会出现在公共子集中。因此，新算法会先对比两个数组的差异并去除，然后再对公共元素计算最长子集，从而减少运行时间和空间。
+* **用户界面优化:** 新用户界面会把差异面板分开成独立窗口，方便用户选择需要显示的内容。上传模式中的面板也单独提取出来，方便用户随时更改对比的文件。此外新增了进度条显示，在对比大文件的时候，用户将能看到文件的对比进度。
